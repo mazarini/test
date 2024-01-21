@@ -17,9 +17,23 @@
  * You should have received a copy of the GNU General Public License
  */
 
-return [
-    Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
-    Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true],
-    Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
-    Symfony\Bundle\TwigBundle\TwigBundle::class => ['dev' => true, 'test' => true],
-];
+namespace App\Tests;
+
+use Mazarini\Test\Exception\TestContainerException;
+use Mazarini\Test\Test\TwigTestCase;
+use Twig\Environment;
+
+class twigTest extends TwigTestCase
+{
+    public function testObjectNotExists(): void
+    {
+        $this->addNullService(Environment::class);
+        $this->expectException(TestContainerException::class);
+        $this->assertInstanceOf(Environment::class, $this->getEnvironment());
+    }
+
+    public function testRender(): void
+    {
+        $this->assertSame('test', $this->render('test.html.twig', ['data' => 'test']));
+    }
+}
