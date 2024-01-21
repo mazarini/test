@@ -1,7 +1,14 @@
 ###> local ###
+/config
 /public
-src/Controller/.gitignore
+/src/Controller/.gitignore
+/src/Entity/.gitignore
+/src/Repository/.gitignore
 /src/Kernel.php
+/tests/migrations/.gitignore
+/tests/src/Controller/.gitignore
+/tests/src/Entity/.gitignore
+/tests/src/Repository/.gitignore
 /var/*
 !var/database
 /var/database/*
@@ -14,7 +21,7 @@ src/Controller/.gitignore
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
 /tests/public/bundles/
-/var/
+#var/
 /vendor/
 ###< symfony/framework-bundle ###
 

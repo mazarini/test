@@ -31,7 +31,7 @@ cover: init-test
 	bin/phpunit --coverage-html var/coverage
 
 init-test:
-#	cp var/database/empty.db var/database/test.db
+	cp var/database/empty.db var/database/test.db
 
 #####################
 #  D A T A B A S E  #
