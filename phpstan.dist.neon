@@ -1,0 +1,11 @@
+includes:
+    - .github/phpstan/baseline.neon
+
+parameters:
+    level: 9
+    paths:
+        - bin/
+        - src/
+        - tests/config/
+        - tests/src
+        - tests/tests
