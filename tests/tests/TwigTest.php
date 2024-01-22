@@ -23,7 +23,7 @@ use Mazarini\Test\Exception\TestContainerException;
 use Mazarini\Test\Test\TwigTestCase;
 use Twig\Environment;
 
-class twigTest extends TwigTestCase
+class TwigTest extends TwigTestCase
 {
     public function testObjectNotExists(): void
     {
