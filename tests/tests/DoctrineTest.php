@@ -50,6 +50,7 @@ class DoctrineTest extends DoctrineTestCase
     {
         $repository = $this->getRepository(Article::class);
         $this->setFlushMax(7);
+        $this->removeEntities($repository);
         $this->createEntities($repository, 9);
         $this->assertSame(9, $this->countEntity($repository));
         $this->removeEntities($repository);

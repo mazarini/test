@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>New Article</title>
+</head>
+
+</html>
+
+<body>
+    <h1>Create new Article</h1>
+    <p>number of articles : <span id="count">{{ articlesCount }}</span></p>
+    <div>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-primary">Save</button>
+        {{ form_end(form) }}
+    </div>
+</body>
+
+</html>
