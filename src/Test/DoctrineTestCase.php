@@ -17,36 +17,18 @@
  * You should have received a copy of the GNU General Public License
  */
 
-namespace App\Entity;
+namespace Mazarini\Test\Test;
 
-use App\Repository\ArticleRepository;
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Persistence\ObjectRepository;
 
-#[ORM\Entity(repositoryClass: ArticleRepository::class)]
-class Article
+abstract class DoctrineTestCase extends ServiceKernelTestCase
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    use DoctrineTestTrait;
 
-    #[ORM\Column(length: 63)]
-    private ?string $label = null;
-
-    public function getId(): ?int
-    {
-        return $this->id ?? 0;
-    }
-
-    public function getLabel(): string
-    {
-        return $this->label ?? '';
-    }
-
-    public function setLabel(string $label): static
-    {
-        $this->label = $label;
-
-        return $this;
-    }
+    /**
+     * createEntity.
+     *
+     * @param ObjectRepository<object> $objectRepository
+     */
+    abstract protected function createEntity(ObjectRepository $objectRepository, int $i): object;
 }
