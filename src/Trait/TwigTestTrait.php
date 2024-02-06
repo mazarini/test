@@ -17,11 +17,30 @@
  * You should have received a copy of the GNU General Public License
  */
 
-namespace Mazarini\Test\Test;
+namespace Mazarini\Test\Trait;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Mazarini\Test\Exception\TestContainerException;
+use Twig\Environment;
 
-class ServiceKernelTestCase extends KernelTestCase
+trait TwigTestTrait
 {
-    use ServiceTestTrait;
+    /**
+     * render.
+     *
+     * @param array<string,mixed> $context
+     */
+    protected function render(string $template, array $context): string
+    {
+        return trim($this->getEnvironment()->render($template, $context));
+    }
+
+    protected function getEnvironment(): Environment
+    {
+        $object = $this->getService(Environment::class);
+
+        if ($object instanceof Environment) {
+            return $object;
+        }
+        throw new TestContainerException(Environment::class, $object ? $object::class : 'NULL');
+    }
 }

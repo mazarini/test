@@ -10,7 +10,7 @@
         },
         "public-dir": "tests/public",
         "branch-alias": {
-            "master": "1.x-dev"
+            "dev-master": "1.x-dev"
         }
     },
     "require": {

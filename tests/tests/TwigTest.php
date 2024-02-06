@@ -20,10 +20,10 @@
 namespace App\Tests;
 
 use Mazarini\Test\Exception\TestContainerException;
-use Mazarini\Test\Test\TwigTestCase;
+use Mazarini\Test\TestCase\KernelTestCase;
 use Twig\Environment;
 
-class TwigTest extends TwigTestCase
+class TwigTest extends KernelTestCase
 {
     public function testObjectNotExists(): void
     {

@@ -17,11 +17,12 @@
  * You should have received a copy of the GNU General Public License
  */
 
-namespace Mazarini\Test\Test;
+namespace Mazarini\Test\TestCase;
 
-use PHPUnit\Framework\TestCase;
+use Mazarini\Test\Trait\ReflectionTestTrait;
+use PHPUnit\Framework\TestCase as Base;
 
-class ReflectionTestCase extends TestCase
+class TestCase extends Base
 {
     use ReflectionTestTrait;
 }

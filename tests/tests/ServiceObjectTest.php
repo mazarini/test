@@ -21,10 +21,10 @@ namespace App\Tests;
 
 use App\Service\ObjectService;
 use Mazarini\Test\Exception\TestContainerException;
-use Mazarini\Test\Test\ServiceKernelTestCase;
+use Mazarini\Test\TestCase\KernelTestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class ServiceObjectTest extends ServiceKernelTestCase
+class ServiceObjectTest extends KernelTestCase
 {
     public function testObjectExists(): void
     {

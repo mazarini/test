@@ -17,15 +17,19 @@
  * You should have received a copy of the GNU General Public License
  */
 
-namespace Mazarini\Test\Test;
+namespace Mazarini\Test\TestCase;
 
 use Doctrine\Persistence\ObjectRepository;
+use Mazarini\Test\Trait\DoctrineTestTrait;
+use Mazarini\Test\Trait\ReflectionTestTrait;
+use Mazarini\Test\Trait\ServiceTestTrait;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase as Base;
 
 class WebTestCase extends Base
 {
     use DoctrineTestTrait;
+    use ReflectionTestTrait;
     use ServiceTestTrait;
     protected string $path = '/';
     protected KernelBrowser $browser;

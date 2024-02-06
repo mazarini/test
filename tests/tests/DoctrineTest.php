@@ -24,9 +24,9 @@ use App\Repository\ArticleRepository;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Persistence\ObjectRepository;
 use Mazarini\Test\Exception\TestContainerException;
-use Mazarini\Test\Test\DoctrineTestCase;
+use Mazarini\Test\TestCase\KernelTestCase;
 
-class DoctrineTest extends DoctrineTestCase
+class DoctrineTest extends KernelTestCase
 {
     public function testObjectManagerNotExists(): void
     {

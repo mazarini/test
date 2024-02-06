@@ -17,18 +17,29 @@
  * You should have received a copy of the GNU General Public License
  */
 
-namespace Mazarini\Test\Test;
+namespace Mazarini\Test\TestCase;
 
 use Doctrine\Persistence\ObjectRepository;
+use Mazarini\Test\Trait\DoctrineTestTrait;
+use Mazarini\Test\Trait\ReflectionTestTrait;
+use Mazarini\Test\Trait\ServiceTestTrait;
+use Mazarini\Test\Trait\TwigTestTrait;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase as Base;
 
-abstract class DoctrineTestCase extends ServiceKernelTestCase
+class KernelTestCase extends Base
 {
     use DoctrineTestTrait;
+    use ReflectionTestTrait;
+    use ServiceTestTrait;
+    use TwigTestTrait;
 
     /**
      * createEntity.
      *
      * @param ObjectRepository<object> $objectRepository
      */
-    abstract protected function createEntity(ObjectRepository $objectRepository, int $i): object;
+    protected function createEntity(ObjectRepository $objectRepository, int $i): object
+    {
+        throw new \RuntimeException('Define protected function createEntity(ObjectRepository $objectRepository, int $i): object');
+    }
 }

@@ -17,30 +17,25 @@
  * You should have received a copy of the GNU General Public License
  */
 
-namespace Mazarini\Test\Test;
+namespace Mazarini\Test\TestCase;
 
-use Mazarini\Test\Exception\TestContainerException;
-use Twig\Environment;
-
-trait TwigTestTrait
+abstract class UrlTestCase extends WebTestCase
 {
     /**
-     * render.
-     *
-     * @param array<string,mixed> $context
+     * @dataProvider urlProvider
      */
-    protected function render(string $template, array $context): string
+    public function testUrl(string $path, int $code = 200, string $method = 'GET'): void
     {
-        return trim($this->getEnvironment()->render($template, $context));
+        $this->getBrowser()
+            ->request($method, $this->path.$path)
+        ;
+        $this->assertResponseStatusCodeSame($code);
     }
 
-    protected function getEnvironment(): Environment
-    {
-        $object = $this->getService(Environment::class);
-
-        if ($object instanceof Environment) {
-            return $object;
-        }
-        throw new TestContainerException(Environment::class, $object ? $object::class : 'NULL');
-    }
+    /**
+     * urlProvider.
+     *
+     * @return \Iterator<array{0:string,1?:int,2?:string}>
+     */
+    abstract protected function urlProvider(): \Iterator;
 }

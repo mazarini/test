@@ -17,9 +17,25 @@
  * You should have received a copy of the GNU General Public License
  */
 
-namespace Mazarini\Test\Test;
+namespace Mazarini\Test\Trait;
 
-class TwigTestCase extends ServiceKernelTestCase
+trait ReflectionTestTrait
 {
-    use TwigTestTrait;
+    public function getProperty(object $object, string $property): mixed
+    {
+        return (new \ReflectionClass($object::class))
+            ->getProperty($property)
+            ->getValue($object)
+        ;
+    }
+
+    public function setProperty(object $object, string $property, mixed $value): static
+    {
+        (new \ReflectionClass($object::class))
+            ->getProperty($property)
+            ->setValue($object, $value)
+        ;
+
+        return $this;
+    }
 }

@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  */
 
-namespace Mazarini\Test\Test;
+namespace Mazarini\Test\Trait;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 

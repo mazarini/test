@@ -22,7 +22,7 @@ namespace App\Test\Controller;
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
 use Doctrine\Persistence\ObjectRepository;
-use Mazarini\Test\Test\WebTestCase;
+use Mazarini\Test\TestCase\WebTestCase;
 
 class ArticleControllerTest extends WebTestCase
 {

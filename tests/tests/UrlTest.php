@@ -19,7 +19,7 @@
 
 namespace App\Test\Controller;
 
-use Mazarini\Test\Test\UrlTestCase;
+use Mazarini\Test\TestCase\UrlTestCase;
 
 class UrlTest extends UrlTestCase
 {

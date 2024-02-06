@@ -20,9 +20,9 @@
 namespace App\Tests;
 
 use App\Service\ObjectService;
-use Mazarini\Test\Test\ReflectionTestCase;
+use Mazarini\Test\TestCase\TestCase;
 
-class ObjectTest extends ReflectionTestCase
+class ObjectTest extends TestCase
 {
     public function testSetterGetterSetter(): void
     {
